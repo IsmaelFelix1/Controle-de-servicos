@@ -18,7 +18,7 @@ public class Cliente {
     private String name;
     @Column(nullable = false, length = 11)
     private String cpf;
-    @Column
+    @Column(name = "date_register")
     private LocalDate dateRegiser;
 
 }
