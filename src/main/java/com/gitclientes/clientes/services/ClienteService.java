@@ -25,4 +25,15 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 
+    public Cliente update(Integer id, Cliente obj ){
+        Cliente entity = clienteRepository.getOne(id);
+        updateData(entity, obj);
+        return clienteRepository.save(entity);
+    }
+
+    private void updateData( Cliente entity, Cliente obj) {
+        entity.setName(obj.getName());
+        entity.setCpf(obj.getCpf());
+    }
+
 }
