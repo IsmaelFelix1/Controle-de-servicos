@@ -18,4 +18,16 @@ public class ClienteController {
         obj = clienteService.save(obj);
         return ResponseEntity.ok().body(obj);
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Cliente> findById(@PathVariable Integer id){
+        Cliente c1 = clienteService.findById(id);
+        return ResponseEntity.ok().body(c1);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        clienteService.delete(id);
+        return ResponseEntity.noContent().build();
+     }
 }
