@@ -1,14 +1,14 @@
 package com.gitclientes.clientes.entities;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cliente {
 
     @Id
@@ -20,5 +20,10 @@ public class Cliente {
     private String cpf;
     @Column(name = "date_register")
     private LocalDate dateRegiser;
+
+    @PrePersist
+    public void prePersist(){
+        setDateRegiser(LocalDate.now());
+    }
 
 }
