@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/customers")
 public class ClienteController {
@@ -14,7 +16,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Cliente> save(@RequestBody Cliente obj){
+    public ResponseEntity<Cliente> save(@RequestBody @Valid Cliente obj){
         obj = clienteService.save(obj);
         return ResponseEntity.ok().body(obj);
     }

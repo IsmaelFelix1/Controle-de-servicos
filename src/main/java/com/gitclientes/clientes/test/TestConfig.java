@@ -17,7 +17,7 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Cliente c1 = new Cliente(null, "Ismael", "00000000000", null);
+        Cliente c1 = new Cliente(null, "Ismael", "06444002346", null);
 
         clienteRepository.saveAll(Arrays.asList(c1));
     }
